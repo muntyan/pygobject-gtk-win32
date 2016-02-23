@@ -29,7 +29,7 @@
 #include "pygobject-private.h"
 #include "pygflags.h"
 
-#include "pygi.h"
+// #include "pygi.h"
 
 GQuark pygflags_class_key;
 
@@ -200,8 +200,8 @@ pyg_flags_from_gtype (GType gtype, int value)
      * 3. creating a new one
      */
     pyclass = (PyObject*)g_type_get_qdata(gtype, pygflags_class_key);
-    if (!pyclass)
-        pyclass = pygi_type_import_by_g_type(gtype);
+//     if (!pyclass)
+//         pyclass = pygi_type_import_by_g_type(gtype);
     if (!pyclass)
         pyclass = pyg_flags_add(NULL, g_type_name(gtype), NULL, gtype);
     if (!pyclass)

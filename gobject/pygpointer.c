@@ -28,7 +28,7 @@
 #include "pygobject-private.h"
 #include "pygpointer.h"
 
-#include "pygi.h"
+// #include "pygi.h"
 
 
 GQuark pygpointer_class_key;
@@ -164,8 +164,8 @@ pyg_pointer_new(GType pointer_type, gpointer pointer)
 
     tp = g_type_get_qdata(pointer_type, pygpointer_class_key);
 
-    if (!tp)
-        tp = (PyTypeObject *)pygi_type_import_by_g_type(pointer_type);
+//     if (!tp)
+//         tp = (PyTypeObject *)pygi_type_import_by_g_type(pointer_type);
 
     if (!tp)
 	tp = (PyTypeObject *)&PyGPointer_Type; /* fallback */

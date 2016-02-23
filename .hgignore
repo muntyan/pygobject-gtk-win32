@@ -1,0 +1,12 @@
+syntax:glob
+CMakeFiles/*
+CMakeCache.txt
+Makefile
+*.exp
+*.lib
+*.pyd
+*.pyd.*
+cmake_install.cmake
+install_manifest.txt
+*.dll
+*.dll.*

@@ -29,7 +29,7 @@
 #include "pyginterface.h"
 #include "pygparamspec.h"
 
-#include "pygi.h"
+// #include "pygi.h"
 
 
 static void pygobject_dealloc(PyGObject *self);
@@ -294,11 +294,11 @@ PyGProps_getattro(PyGProps *self, PyObject *attr)
 	return build_parameter_list(class);
     }
 
-    if (self->pygobject != NULL) {
-        ret = pygi_get_property_value (self->pygobject, attr_name);
-        if (ret != NULL)
-            return ret;
-    }
+//     if (self->pygobject != NULL) {
+//         ret = pygi_get_property_value (self->pygobject, attr_name);
+//         if (ret != NULL)
+//             return ret;
+//     }
 
     pspec = g_object_class_find_property(class, attr_name);
     g_type_class_unref(class);
@@ -373,7 +373,7 @@ PyGProps_setattro(PyGProps *self, PyObject *attr, PyObject *pvalue)
     GParamSpec *pspec;
     char *attr_name;
     GObject *obj;
-    int ret = -1;
+//     int ret = -1;
     
     if (pvalue == NULL) {
 	PyErr_SetString(PyExc_TypeError, "properties cannot be "
@@ -393,12 +393,12 @@ PyGProps_setattro(PyGProps *self, PyObject *attr, PyObject *pvalue)
         return -1;
     }
 
-    ret = pygi_set_property_value (self->pygobject, attr_name, pvalue);
-    if (ret == 0)
-        return 0;
-    else if (ret == -1)
-        if (PyErr_Occurred())
-            return -1;
+//     ret = pygi_set_property_value (self->pygobject, attr_name, pvalue);
+//     if (ret == 0)
+//         return 0;
+//     else if (ret == -1)
+//         if (PyErr_Occurred())
+//             return -1;
 
     obj = self->pygobject->obj;
     pspec = g_object_class_find_property(G_OBJECT_GET_CLASS(obj), attr_name);
@@ -909,8 +909,8 @@ pygobject_lookup_class(GType gtype)
     if (py_type == NULL) {
 	py_type = g_type_get_qdata(gtype, pyginterface_type_key);
 
-    if (py_type == NULL)
-        py_type = (PyTypeObject *)pygi_type_import_by_g_type(gtype);
+// 	if (py_type == NULL)
+// 	    py_type = (PyTypeObject *)pygi_type_import_by_g_type(gtype);
 
 	if (py_type == NULL) {
 	    py_type = pygobject_new_with_interfaces(gtype);
@@ -1542,7 +1542,8 @@ pygobject_connect(PyGObject *self, PyObject *args)
     if (extra_args == NULL)
 	return NULL;
 
-    closure = pygi_signal_closure_new(self, name, callback, extra_args, NULL);
+    closure = NULL;
+//     closure = pygi_signal_closure_new(self, name, callback, extra_args, NULL);
     if (closure == NULL)
         closure = pyg_closure_new(callback, extra_args, NULL);
 
@@ -1595,7 +1596,8 @@ pygobject_connect_after(PyGObject *self, PyObject *args)
     if (extra_args == NULL)
 	return NULL;
 
-    closure = pygi_signal_closure_new(self, name, callback, extra_args, NULL);
+    closure = NULL;
+//     closure = pygi_signal_closure_new(self, name, callback, extra_args, NULL);
     if (closure == NULL)
         closure = pyg_closure_new(callback, extra_args, NULL);
 
@@ -1648,7 +1650,8 @@ pygobject_connect_object(PyGObject *self, PyObject *args)
     if (extra_args == NULL)
 	return NULL;
 
-    closure = pygi_signal_closure_new(self, name, callback, extra_args, object);
+    closure = NULL;
+//     closure = pygi_signal_closure_new(self, name, callback, extra_args, object);
     if (closure == NULL)
         closure = pyg_closure_new(callback, extra_args, object);
 
@@ -1701,7 +1704,8 @@ pygobject_connect_object_after(PyGObject *self, PyObject *args)
     if (extra_args == NULL)
 	return NULL;
 
-    closure = pygi_signal_closure_new(self, name, callback, extra_args, object);
+    closure = NULL;
+//     closure = pygi_signal_closure_new(self, name, callback, extra_args, object);
     if (closure == NULL)
         closure = pyg_closure_new(callback, extra_args, object);
 

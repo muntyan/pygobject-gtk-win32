@@ -28,7 +28,7 @@
 #include <pyglib.h>
 #include "pygobject-private.h"
 
-#include "pygi.h"
+// #include "pygi.h"
 
 GQuark pygenum_class_key;
 
@@ -179,8 +179,8 @@ pyg_enum_from_gtype (GType gtype, int value)
      * 3. creating a new one
      */
     pyclass = (PyObject*)g_type_get_qdata(gtype, pygenum_class_key);
-    if (!pyclass)
-        pyclass = pygi_type_import_by_g_type(gtype);
+//     if (!pyclass)
+//         pyclass = pygi_type_import_by_g_type(gtype);
     if (!pyclass)
         pyclass = pyg_enum_add(NULL, g_type_name(gtype), NULL, gtype);
     if (!pyclass)
