@@ -19801,9 +19801,9 @@ pygio_add_constants(PyObject *module, const gchar *strip_prefix)
   pyg_enum_add(module, "FileAttributeStatus", strip_prefix, G_TYPE_FILE_ATTRIBUTE_STATUS);
   pyg_flags_add(module, "FileQueryInfoFlags", strip_prefix, G_TYPE_FILE_QUERY_INFO_FLAGS);
   pyg_flags_add(module, "FileCreateFlags", strip_prefix, G_TYPE_FILE_CREATE_FLAGS);
-  pyg_enum_add(module, "MountMountFlags", strip_prefix, G_TYPE_MOUNT_MOUNT_FLAGS);
+  pyg_flags_add(module, "MountMountFlags", strip_prefix, G_TYPE_MOUNT_MOUNT_FLAGS);
   pyg_flags_add(module, "MountUnmountFlags", strip_prefix, G_TYPE_MOUNT_UNMOUNT_FLAGS);
-  pyg_enum_add(module, "DriveStartFlags", strip_prefix, G_TYPE_DRIVE_START_FLAGS);
+  pyg_flags_add(module, "DriveStartFlags", strip_prefix, G_TYPE_DRIVE_START_FLAGS);
   pyg_enum_add(module, "DriveStartStopType", strip_prefix, G_TYPE_DRIVE_START_STOP_TYPE);
   pyg_flags_add(module, "FileCopyFlags", strip_prefix, G_TYPE_FILE_COPY_FLAGS);
   pyg_flags_add(module, "FileMonitorFlags", strip_prefix, G_TYPE_FILE_MONITOR_FLAGS);
@@ -19819,7 +19819,7 @@ pygio_add_constants(PyObject *module, const gchar *strip_prefix)
   pyg_enum_add(module, "ResolverError", strip_prefix, G_TYPE_RESOLVER_ERROR);
   pyg_enum_add(module, "SocketFamily", strip_prefix, G_TYPE_SOCKET_FAMILY);
   pyg_enum_add(module, "SocketType", strip_prefix, G_TYPE_SOCKET_TYPE);
-  pyg_enum_add(module, "SocketMsgFlags", strip_prefix, G_TYPE_SOCKET_MSG_FLAGS);
+  pyg_flags_add(module, "SocketMsgFlags", strip_prefix, G_TYPE_SOCKET_MSG_FLAGS);
   pyg_enum_add(module, "SocketProtocol", strip_prefix, G_TYPE_SOCKET_PROTOCOL);
   pyg_enum_add(module, "ZlibCompressorFormat", strip_prefix, G_TYPE_ZLIB_COMPRESSOR_FORMAT);
 
