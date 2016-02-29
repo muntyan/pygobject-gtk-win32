@@ -94,6 +94,10 @@ install(FILES
     gobject/propertyhelper.py
 DESTINATION ${MOO_PYTHON_LIB_DIR}/gobject)
 install(FILES
+    pygtk.py
+    pygtk.pth
+DESTINATION ${MOO_PYTHON_LIB_DIR})
+install(FILES
     dsextras.py
 DESTINATION ${MOO_PYTHON_LIB_DIR}/gtk-2.0)
 
