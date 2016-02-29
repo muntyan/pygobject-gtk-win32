@@ -24,6 +24,7 @@ include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/glib ${CMAKE_SOURCE_
 
 add_library(pyglib SHARED
     glib/pyglib.c
+    glib/pyglib.def
 )
 
 #target_include_directories(_glib BEFORE PUBlIC ${CMAKE_SOURCE_DIR}/glib)
